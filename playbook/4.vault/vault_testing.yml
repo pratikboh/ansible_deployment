@@ -9,11 +9,12 @@
   vars:
     user_password: !vault |
       $ANSIBLE_VAULT;1.1;AES256
-      63366433346339616138303335626163303934303865623938393837303733393435323739653162
-      3237643838623639646566353866643931646162316461300a636530386163616366306635623362
-      37653361663331623532393232393139313064653963386566373937326162303965616662656137
-      3931373964633133390a653834333332616265653035643136383330663139333236303738353031
-      3138
+      32373735633665346534356237336532633437333639636266656234393533613062343262373637
+      3064623332316462306637393936333463383030346263610a393861393364653839623463326138
+      38333763376161346230663735396262373365303061333565356437346664336562313363656662
+      3039663834326637350a633430363762383762396435376336343236376234666366373637616463
+      3636
+
 
   tasks:
     - name: Create .aws folder
@@ -28,8 +29,7 @@
         mode: "0600"
       with_items:
         - aws_creds
-        - tls.key
-        - tls.crt
+
     - name: Copy Encrypted Credentials File To .aws folder
       copy:
         src: /tmp/aws_creds #This Encrypted File Must Be Created Prior To Running The Playbook.
@@ -60,9 +60,9 @@
         password: "{{ '%s' | format(user_password) | regex_replace('\n', '') | password_hash('sha512') }}"
         password_expire_min: 1
       with_items:
-        - Avinash
-        - Saikiran
-        - Gnane
+        - Pratik
+        - Anagha  
+        - Abhang
     - name: Replace Password Authentication To Yes
       ansible.builtin.lineinfile:
         path: /etc/ssh/sshd_config
