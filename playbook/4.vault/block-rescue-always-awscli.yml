@@ -44,6 +44,11 @@
             msg: "{{file_list.stdout}}"
         - name: Check AWS CLI Version
           shell: aws --version
+        - name: Install pip3
+          apt:
+            name: python3-pip
+            state: present
+          become: true
         - name: Ensure passlib is installed
           pip:
             name: passlib
