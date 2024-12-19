@@ -50,7 +50,7 @@
             state: present
           become: true
         - name: Ensure passlib is installed
-          pip:
-            name: passlib
+          apt:
+            name: python3-passlib
             state: present
           become: true
