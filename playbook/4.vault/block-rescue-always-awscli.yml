@@ -50,7 +50,8 @@
             state: present
           become: true
         - name: Ensure passlib is installed
-          apt:
-            name: python3-passlib
+          pip:
+            name: passlib
             state: present
+            extra_args: --break-system-packages
           become: true
