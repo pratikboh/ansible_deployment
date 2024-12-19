@@ -22,7 +22,7 @@
       tags:
         - command
     - name: Run  Env Using COMMAND Variables
-      command: env && df -h && free
+      shell: env && df -h && free
       tags:
         - command
 
