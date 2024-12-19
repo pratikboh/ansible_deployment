@@ -6,8 +6,7 @@
   tasks:
     - name: Run SHELL Module
       shell: >
-        echo "Welcome
-        To DevSecOps By Saikiran Pinapathruni ${HOME}"
+        echo "Welcome To DevSecOps By Saikiran Pinapathruni ${HOME}"
       tags:
         - shell
 
